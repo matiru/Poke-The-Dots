@@ -6,7 +6,7 @@
 
 from uagame import Window
 from random import randint
-from pygame import QUIT, Color, MOUSEBUTTONUP
+from pygame import MOUSEBUTTONUP, Color, KEYDOWN, K_q,QUIT
 from pygame.time import Clock, get_ticks
 from pygame.event import get as get_events
 from pygame.draw import circle as draw_circle
@@ -75,6 +75,10 @@ def handle_events(game):
       game.close_selected = True
     elif event.type == MOUSEBUTTONUP:
       handle_mouse_up(game)
+    elif event.type == KEYDOWN:
+      if event.key == K_q:
+        game.close_selected = True
+      
   
 def handle_mouse_up(game):
   # Respond to the player releasing the mouse button by
